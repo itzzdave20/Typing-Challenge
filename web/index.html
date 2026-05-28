@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0b0f1a">
+    <title>Typing Challenge</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="panel">
+        <header class="topbar">
+          <div>
+            <h1>Typing Challenge</h1>
+            <p>Speed, accuracy, and a clean little leaderboard.</p>
+          </div>
+          <button id="resetScores" class="ghost" type="button">Reset scores</button>
+        </header>
+
+        <section id="setup" class="setup">
+          <label>
+            Player
+            <input id="playerName" autocomplete="name" maxlength="20" placeholder="Your name">
+          </label>
+
+          <label>
+            Category
+            <select id="category"></select>
+          </label>
+
+          <label>
+            Difficulty
+            <select id="difficulty">
+              <option value="easy">Easy - 60 sec</option>
+              <option value="medium" selected>Medium - 45 sec</option>
+              <option value="hard">Hard - 30 sec</option>
+            </select>
+          </label>
+
+          <button id="startGame" class="primary" type="button">Start game</button>
+        </section>
+
+        <section id="game" class="game hidden" aria-live="polite">
+          <div class="stats">
+            <span><strong id="timeLeft">45</strong> sec</span>
+            <span><strong id="score">0</strong> pts</span>
+            <span><strong id="lives">3</strong> lives</span>
+            <span><strong id="accuracy">100</strong>%</span>
+          </div>
+
+          <div class="wordWrap">
+            <p id="currentWord" class="word">ready</p>
+            <p id="message" class="message">Type the word and press Enter.</p>
+          </div>
+
+          <input id="answer" class="answer" autocomplete="off" autocapitalize="none" spellcheck="false">
+
+          <div class="actions">
+            <button id="skipWord" class="ghost" type="button">Skip</button>
+            <button id="endGame" class="ghost danger" type="button">End</button>
+          </div>
+        </section>
+      </section>
+
+      <aside class="leaderboard">
+        <h2>Leaderboard</h2>
+        <ol id="scores"></ol>
+      </aside>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
